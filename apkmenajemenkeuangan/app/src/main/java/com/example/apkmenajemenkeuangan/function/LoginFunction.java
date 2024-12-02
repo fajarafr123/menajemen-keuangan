@@ -16,6 +16,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.apkmenajemenkeuangan.MainActivity;
 import com.example.apkmenajemenkeuangan.network.BaseURL;
 import com.example.apkmenajemenkeuangan.storage.PreferenceLogin;
+import com.example.apkmenajemenkeuangan.storage.PreferenceSessionLogin;
 
 import org.json.JSONObject;
 
@@ -54,7 +55,7 @@ public class LoginFunction {
 
         StringRequest requestLogin = new StringRequest
                 (
-                        Request.Method.POST, "http://192.168.1.3/proyek_menajemenkeuangan/api/auth/login.php",
+                        Request.Method.POST, baseURL.apiLogin(),
                         response -> {
                             try {
                                 JSONObject object = new JSONObject(response);
@@ -63,18 +64,19 @@ public class LoginFunction {
                                 boolean statusAuth = object.getBoolean("status");
                                 String messageError = object.getString("message");
 
-                                String getDataUser = object.getString("data user");
-                                JSONObject objDataUser = new JSONObject(getDataUser);
-
-                                String idUser = objDataUser.getString("id");
-                                String nameOfuser = objDataUser.getString("name_user");
-                                String emailuser = objDataUser.getString("email");
-                                String usrName = objDataUser.getString("username");
-                                String pwd = objDataUser.getString("password");
 
                                 if(statusAuth){
-                                    PreferenceLogin.getInstance(context).setSaveLoginUser(idUser,nameOfuser,emailuser,usrName,pwd);
+                                    String getDataUser = object.getString("data user");
+                                    JSONObject objDataUser = new JSONObject(getDataUser);
 
+                                    String idUser = objDataUser.getString("id");
+                                    String nameOfuser = objDataUser.getString("name_user");
+                                    String emailuser = objDataUser.getString("email");
+                                    String usrName = objDataUser.getString("username");
+                                    String pwd = objDataUser.getString("password");
+
+                                    PreferenceLogin.getInstance(context).setSaveLoginUser(idUser,nameOfuser,emailuser,usrName,pwd);
+                                    PreferenceSessionLogin.getInstance(context).setSessionLoginUser(Boolean.valueOf(String.valueOf(true)));
                                     Intent intent = new Intent(context, MainActivity.class);
                                     context.startActivity(intent);
 

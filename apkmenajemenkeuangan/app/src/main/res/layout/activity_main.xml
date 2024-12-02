@@ -17,5 +17,10 @@
         android:layout_height="wrap_content"
         android:text="Hi-Welcome andro"
         />
+    <Button
+        android:onClick="logOutAction"
+        android:text="Logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

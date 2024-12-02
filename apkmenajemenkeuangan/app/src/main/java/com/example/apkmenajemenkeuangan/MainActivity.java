@@ -1,13 +1,16 @@
 package com.example.apkmenajemenkeuangan;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.apkmenajemenkeuangan.storage.PreferenceLogin;
+import com.example.apkmenajemenkeuangan.storage.PreferenceSessionLogin;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,5 +30,10 @@ public class MainActivity extends AppCompatActivity {
 
         txLblMessageWelcome.setText("Hi-Welcome " + hiUser);
 
+    }
+
+    public void logOutAction(View view) {
+        PreferenceSessionLogin.getInstance(MainActivity.this).setSessionLoginUser(Boolean.valueOf("logout"));
+        startActivity(new Intent(MainActivity.this, LoginActivity.class));
     }
 }
