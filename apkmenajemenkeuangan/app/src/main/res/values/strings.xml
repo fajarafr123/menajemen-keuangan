@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">apk menajemen keuangan</string>
+    <string name="versi_aplikasi">V1.1</string>
+    <string name="fill_username">Username</string>
+    <string name="fill_password">Password</string>
+    <string name="txt_btn_login">Login</string>
+    <string name="dont_have_account">belum punya akun, <u><b>buat sekarang</b></u></string>
 </resources>

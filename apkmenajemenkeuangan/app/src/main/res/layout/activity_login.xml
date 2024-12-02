@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:gravity="center"
+            android:text="MENAJEMEN KEUANGAN PRODI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15pt"
+            android:textColor="#16120D"
+            android:textStyle="bold"/>
+        <TextView
+            android:gravity="center"
+            android:text="@string/versi_aplikasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#1F1A13"
+            android:textSize="10pt" />
+
+        <TextView
+            android:id="@+id/lblInfoError"
+            android:visibility="gone"
+            android:background="@drawable/bg_textview_rounded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="opss, maaf jaringan eror"
+            android:layout_marginBottom="20dp"
+            android:padding="10dp"
+            android:textColor="#ffff"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="40dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <EditText
+
+            android:id="@+id/etUsername"
+            android:hint="@string/fill_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- EditText untuk Password dengan ikon mata di sebelahnya -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:hint="@string/fill_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <!-- Tombol mata untuk toggle password -->
+            <ImageView
+                android:id="@+id/ivTogglePassword"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_eye_off"
+                android:contentDescription="Toggle Password Visibility"/>
+        </LinearLayout>
+
+        <Button
+            android:onClick="cancelRegister"
+            android:backgroundTint="@color/black"
+            android:id="@+id/etLogin"
+            android:text="@string/txt_btn_login"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"/>
+
+        <TextView
+            android:onClick="goToRegister"
+            android:textColor="#0000FF"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/dont_have_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>
